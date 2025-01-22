@@ -6,7 +6,7 @@ export default function Form() {
     return (
         <View>
             {/* Essa View contém os componentes principais da primeira tela "Gestão de Utensílios" */}
-            <View>
+            <View style={styles.containerArrumador}>
                 {/* Container da imagem da mão segurando o QR Code */}
                 <View style={styles.imageContainer}>
                     <Image
@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
         padding: 20, // Espaçamento interno para evitar que os itens toquem nas bordas
     },
 
+    // Estilo para alinhar os itens horizontalmente
+    containerArrumador:{
+        alignItems: 'center', // Centraliza os itens horizontalmente
+    },
+
     // Estilo do container que segura a imagem da mão
     imageContainer: {
         marginBottom: 30, // Espaçamento abaixo da imagem
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1E1E1E', // Cor de fundo escura para contraste
         paddingVertical: 15, // Espaçamento vertical interno do botão
         paddingHorizontal: 20, // Espaçamento horizontal interno do botão
-        borderRadius: 5, // Bordas arredondadas
+        borderRadius: 10, // Bordas arredondadas
         marginBottom: 10, // Espaçamento entre os botões
         width: '80%', // Botão ocupa 80% da largura do container pai
         alignItems: 'center', // Centraliza o texto do botão horizontalmente

@@ -1,81 +1,78 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
-export default function Form(){
-    return(
+// Função principal que representa o formulário da primeira tela "Gestão de Utensílios"
+export default function Form() {
+    return (
         <View>
-
-            {/* Essa View contém os componentes princiáis da primeira tela "Gestão de Utensílios" */}
+            {/* Essa View contém os componentes principais da primeira tela "Gestão de Utensílios" */}
             <View>
-
-                {/* Imagem da mão */}
+                {/* Container da imagem da mão segurando o QR Code */}
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require('./maoQrcode.png')} //Coloquei a imagem na mesma pasta "form"
-                        style={styles.image}
+                        source={require('./maoQrcode.png')} // Caminho da imagem da mão (mesma pasta do arquivo "form")
+                        style={styles.image} // Aplicação do estilo definido para a imagem
                     />
                 </View>
 
-                {/* Primeiro botão */}
+                {/* Primeiro botão: usado para iniciar a leitura de um QR Code */}
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Ler QR Code</Text>
                 </TouchableOpacity>
 
-                {/* Segundo botão */}
+                {/* Segundo botão: usado para cadastrar um novo utensílio */}
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Cadastrar Utensílio</Text>
                 </TouchableOpacity>
 
-                {/* Mensagem de link */}
+                {/* Link informativo para acessar informações de uso do aplicativo */}
                 <Text style={styles.link}>Acessar Informações de utilização do app</Text>
-        </View>
-
-
+            </View>
         </View>
     );
 }
 
-
-// Estilizando nosso FORM
+// Estilização dos componentes do formulário
 const styles = StyleSheet.create({
+    // Estilo base da tela do formulário (não está sendo utilizado diretamente aqui, mas pode ser aproveitado no futuro)
     container: {
-        flex: 1,
-        backgroundColor: '#121212',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+        flex: 1, // O formulário ocupa toda a área disponível
+        backgroundColor: '#121212', // Cor de fundo escura para a tela
+        alignItems: 'center', // Centraliza os itens horizontalmente
+        justifyContent: 'center', // Centraliza os itens verticalmente
+        padding: 20, // Espaçamento interno para evitar que os itens toquem nas bordas
     },
 
-    //Dados da aparência da imagem da mão
+    // Estilo do container que segura a imagem da mão
     imageContainer: {
-        marginBottom: 30,
+        marginBottom: 30, // Espaçamento abaixo da imagem
     },
     image: {
-        width: 300,
-        height: 300,
+        width: 300, // Largura da imagem em pixels
+        height: 300, // Altura da imagem em pixels
     },
 
-    //Dado da aparêcia dos botões
+    // Estilo dos botões (tanto "Ler QR Code" quanto "Cadastrar Utensílio")
     button: {
-        backgroundColor: '#1E1E1E',
-        paddingVertical: 15,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-        marginBottom: 10,
-        width: '80%',
-        alignItems: 'center',
+        backgroundColor: '#1E1E1E', // Cor de fundo escura para contraste
+        paddingVertical: 15, // Espaçamento vertical interno do botão
+        paddingHorizontal: 20, // Espaçamento horizontal interno do botão
+        borderRadius: 5, // Bordas arredondadas
+        marginBottom: 10, // Espaçamento entre os botões
+        width: '80%', // Botão ocupa 80% da largura do container pai
+        alignItems: 'center', // Centraliza o texto do botão horizontalmente
     },
     buttonText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: 'bold',
+        color: '#FFFFFF', // Cor do texto do botão (branca para contraste)
+        fontSize: 16, // Tamanho da fonte do texto
+        fontWeight: 'bold', // Deixa o texto em negrito
     },
 
-    //Dados da aparência da mendagem de link
+    // Estilo do link informativo abaixo dos botões
     link: {
-        color: '#A9A9A9',
-        marginTop: 20,
-        textDecorationLine: 'underline',
-        fontSize: 14,
+        color: '#A9A9A9', // Cor cinza clara para o link
+        marginTop: 20, // Espaçamento acima do link
+        textDecorationLine: 'underline', // Sublinhar o texto para indicar que é clicável
+        fontSize: 14, // Tamanho da fonte do texto do link
     },
 });

@@ -1,25 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import Title from './src/components/title';
-import Main from './src/components/main';
+import React from 'react';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import TelaInicial from './src/pages/telaInicial/';
+import CadastroUtensilio from './src/pages/cadastroUtensilio/';
 
-export default function App() {
-  return (
+const Stack = createStackNavigator();
 
-    // Aqui importamos todos os componentes que fizemos para que seja possível aparecer na tela do App
-    <View style={styles.container}>
-      <Title/>
-      <Main/>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1E1E1E',
-    justifyContent: 'center',
-  },
-});
+export default function App(){
+  return(
+    <NavigationContainer>
+      {/* Stack que armazena as telas do aplicativo */}
+      <Stack.Navigator>
+        <Stack.Screen name="TelaInicial" component={TelaInicial} options={{ headerShown: false }}/>
+        <Stack.Screen name="CadastroUtensilio" component={CadastroUtensilio} options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+};

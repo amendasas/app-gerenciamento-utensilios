@@ -1,8 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
+import { useNavigation } from '@react-navigation/native';
+
 // Função principal que representa o formulário da primeira tela "Gestão de Utensílios"
 export default function Form() {
+    // Faz o Navigation funcionar.
+    const navigation = useNavigation();
+
     return (
         <View>
             {/* Essa View contém os componentes principais da primeira tela "Gestão de Utensílios" */}
@@ -21,7 +26,7 @@ export default function Form() {
                 </TouchableOpacity>
 
                 {/* Segundo botão: usado para cadastrar um novo utensílio */}
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("CadastroUtensilio")}>
                     <Text style={styles.buttonText}>Cadastrar Utensílio</Text>
                 </TouchableOpacity>
 

@@ -1,5 +1,4 @@
 import { StyleSheet, View, } from 'react-native';
-
 import Title from '../../components/title';
 import Main from '../../components/main';
 

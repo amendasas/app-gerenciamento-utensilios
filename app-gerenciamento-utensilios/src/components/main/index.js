@@ -14,13 +14,10 @@ export default function Main() {
 // Estilo para o quadro branco com bordas arredondadas
 const styles = StyleSheet.create({
     main: {
-        flex: 1,
+        flex: 3,
         backgroundColor: '#FFFFFF', // Fundo branco dentro da borda
-        borderTopLeftRadius: 20, // Bordas arredondadas no topo
-        borderTopRightRadius: 20, // Bordas arredondadas no topo
-        padding: 40, // Espaçamento interno para os componentes
+        borderTopRightRadius: 50, // Bordas arredondadas no topo
         alignItems: 'center', // Centraliza o conteúdo horizontalmente
         justifyContent: 'flex-start', // Mantém o conteúdo no topo
-        marginTop: 80, // Deixa espaço para o título acima
     },
 });

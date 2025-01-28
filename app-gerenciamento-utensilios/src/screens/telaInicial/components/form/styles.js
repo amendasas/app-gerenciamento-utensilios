@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
 
     // Estilo do container que segura a imagem da mão
     imageContainer: {
-        marginBottom: 30, // Espaçamento abaixo da imagem
+        marginBottom: 20, // Espaçamento abaixo da imagem
     },
     image: {
-        width: 300, // Largura da imagem em pixels
-        height: 300, // Altura da imagem em pixels
+        width: 320, // Largura da imagem em pixels
+        height: 320, // Altura da imagem em pixels
     },
 
     // Estilo dos botões (tanto "Ler QR Code" quanto "Cadastrar Utensílio")
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20, // Espaçamento horizontal interno do botão
         borderRadius: 10, // Bordas arredondadas
         marginBottom: 10, // Espaçamento entre os botões
-        width: '80%', // Botão ocupa 80% da largura do container pai
+        width: '100%', // Botão ocupa 80% da largura do container pai
         alignItems: 'center', // Centraliza o texto do botão horizontalmente
     },
     buttonText: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         color: '#A9A9A9', // Cor cinza clara para o link
         marginTop: 20, // Espaçamento acima do link
         textDecorationLine: 'underline', // Sublinhar o texto para indicar que é clicável
-        fontSize: 14, // Tamanho da fonte do texto do link
+        fontSize: 16, // Tamanho da fonte do texto do link
     },
 });
 

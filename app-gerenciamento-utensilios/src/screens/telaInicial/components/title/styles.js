@@ -1,16 +1,3 @@
-<<<<<<<< HEAD:app-gerenciamento-utensilios/src/components/title/index.js
-import React from "react";
-import { View, Text } from "react-native";
-import styles from './styles'; // Importe os estilos do arquivo styles.js
-
-export default function Title() {
-    return (
-        <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Gestão de{'\n'}Utensílios</Text>
-        </View>
-    );
-}
-========
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,4 +15,3 @@ const styles = StyleSheet.create({
 });
 
 export default styles;
->>>>>>>> arrumando-navigation:app-gerenciamento-utensilios/src/screens/telaInicial/components/title/styles.js

@@ -12,7 +12,7 @@ export default function Title() {
         <View style={styles.container}>
             {/* Ícone de Seta */}
             <TouchableOpacity style={styles.setaContainer} onPress={() => navigation.goBack()}>
-                <Ionicons name="arrow-back" size={40} color="#FFF" style={{ transform: [{ scaleY: 0.8 }] }}/>
+                <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>
 
             {/* Essa view é usada para a estilização do título */}

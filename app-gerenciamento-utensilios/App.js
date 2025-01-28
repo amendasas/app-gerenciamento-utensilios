@@ -9,3 +9,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// comentário para saber se o commit deu certo

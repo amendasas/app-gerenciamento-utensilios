@@ -23,11 +23,14 @@ export default function Form() {
 
                 <Text style={styles.titles}>NOME DO UTENSÍLIO</Text>
           
-                <TextInput style={styles.textInput} 
+                <TextInput style={styles.textInputNome} 
                     placeholder="Nome do Utensílio" 
                     placeholderTextColor="#575757" 
                     value={nome} 
                     onChangeText={setNome}
+                    multiline 
+                    maxLength={35}
+
                 />
 
                 <Text style={styles.titles}>DESCRIÇÃO</Text>
@@ -38,13 +41,14 @@ export default function Form() {
                     placeholderTextColor="#575757"
                     value={description}
                     onChangeText={setdescription}
-                    multiline
+                    multiline 
+                    maxLength={250}
                 />
 
                 {/* Container da imagem do QR Code */}
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require('./maoQrcode.png')} // Caminho da imagem da mão (mesma pasta do arquivo "form")
+                        source={require('./simboloQRCode.png')} // Caminho da imagem da mão (mesma pasta do arquivo "form")
                         style={styles.image} // Aplicação do estilo definido para a imagem
                     />
                 </View>

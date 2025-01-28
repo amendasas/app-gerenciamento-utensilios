@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     titleText: {
-        fontSize: 36, // Tamanho da fonte maior
+        fontSize: 40, // Tamanho da fonte maior
         fontWeight: 'bold', // Negrito
         color: '#FFFFFF', // Cor branca
         textAlign: 'center', // Centraliza o texto
+        marginTop: 50,
     },
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Form from "../form";
 
-import styles from '../../../stylesComuns/main/styles';
+import styles from './styles'; // Importa os estilos do arquivo styles.js
 
 
 

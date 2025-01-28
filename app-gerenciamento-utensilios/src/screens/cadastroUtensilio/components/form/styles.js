@@ -10,23 +10,35 @@ const styles = StyleSheet.create({
         color: "#999999",
         paddingBottom: 10,
         paddingTop: 40,
+        alignSelf: "flex-start",
+    },
+
+    textInputNome:{
+        backgroundColor: "#cccccc",
+        borderRadius: 18,
+        fontSize: 16,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        width: 300,
     },
 
     textInput:{
         backgroundColor: "#cccccc",
-        borderRadius: 15,
+        borderRadius: 18,
         fontSize: 16,
-        paddingHorizontal: 15,
-        paddingVertical: 10,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        width: 300,
     },
     
     // Estilo do container da imagem do QR Code
     imageContainer: {
+        marginTop: 30, 
         marginBottom: 30, // Espaçamento abaixo da imagem
     },
     image: {
-        width: 200, // Largura da imagem em pixels
-        height: 200, // Altura da imagem em pixels
+        width: 180, // Largura da imagem em pixels
+        height: 180, // Altura da imagem em pixels
     },
 
     // Estilo dos botões (tanto "Ler QR Code" quanto "Cadastrar Utensílio")
@@ -36,7 +48,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20, // Espaçamento horizontal interno do botão
         borderRadius: 10, // Bordas arredondadas
         marginBottom: 10, // Espaçamento entre os botões
-        width: '80%', // Botão ocupa 80% da largura do container pai
+        width: '300', // Botão ocupa 80% da largura do container pai
         alignItems: 'center', // Centraliza o texto do botão horizontalmente
     },
     buttonText: {
@@ -48,9 +60,10 @@ const styles = StyleSheet.create({
     // Estilo do link informativo abaixo dos botões
     link: {
         color: '#A9A9A9', // Cor cinza clara para o link
-        marginTop: 20, // Espaçamento acima do link
+        marginTop: 10, // Espaçamento acima do link
         textDecorationLine: 'underline', // Sublinhar o texto para indicar que é clicável
         fontSize: 14, // Tamanho da fonte do texto do link
+        marginBottom: 30, // Espaçamento abaixo da imagem
     },
 });
 

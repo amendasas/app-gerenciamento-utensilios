@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import styles from './styles'; // Importa os estilos do arquivo styles.js
 
 export default function Title() {
     return (
@@ -9,18 +10,3 @@ export default function Title() {
         </View>
     );
 }
-
-// Estilos para o título
-const styles = StyleSheet.create({
-    titleContainer: {
-        alignItems: 'center', // Centraliza o texto horizontalmente,
-        flex: 1,
-        justifyContent: "center",
-    },
-    titleText: {
-        fontSize: 36, // Tamanho da fonte maior
-        fontWeight: 'bold', // Negrito
-        color: '#FFFFFF', // Cor branca
-        textAlign: 'center', // Centraliza o texto
-    },
-});

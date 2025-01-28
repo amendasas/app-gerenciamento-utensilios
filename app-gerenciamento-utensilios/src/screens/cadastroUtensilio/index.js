@@ -1,10 +1,16 @@
-import { View, Text, StyleSheet} from 'react-native';
+import { StyleSheet, View, } from 'react-native';
+
+import Title from './components/title';
+import Main from './components/main';
+
 
 
 export default function CadastroUtensilio() {
   return (
+    // Aqui importamos todos os componentes que fizemos para que seja possível aparecer na tela do App
     <View style={styles.container}>
-      <Text style={styles.destacarTexto}>Deu certo!</Text>
+      <Title/>
+      <Main/>
     </View>
   );
 }
@@ -14,12 +20,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1E1E1E',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-
-  //Excluir depois que arrumar!!!
-  destacarTexto: {
-    color: "#FFF",
-    fontSize: 64,
-  }
 });

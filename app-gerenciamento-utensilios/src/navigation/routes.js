@@ -1,25 +1,24 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import TelaInicial from '../screens/telaInicial';  // Importando TelaInicial
-import CadastroUtensilio from '../screens/cadastroUtensilio';  // Importando CadastroUtensilio
+import { createStackNavigator } from '@react-navigation/stack'; // Import do Stack Navigator
+import TelaInicial from '../screens/telaInicial';
+import CadastroUtensilio from '../screens/cadastroUtensilio';
 
-const Stack = createStackNavigator();  // Criando o Stack Navigator
+const Stack = createStackNavigator();
 
-const Routes = () => {
+export default function Routes() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen 
-        name="TelaInicial" 
-        component={TelaInicial} 
-        options={{ headerShown: false }}  // Ocultando o header da tela
-      />
-      <Stack.Screen 
-        name="CadastroUtensilio" 
-        component={CadastroUtensilio} 
-        options={{ headerShown: false }}  // Ocultando o header da tela
-      />
+    <Stack.Navigator initialRouteName="TelaInicial">
+        <Stack.Screen 
+            name="TelaInicial"
+            component={TelaInicial} 
+            options={{ headerShown: false }}
+        />
+
+        <Stack.Screen 
+            name="CadastroUtensilio"
+            component={CadastroUtensilio}
+            options={{ headerShown: false }}
+        />
     </Stack.Navigator>
   );
-};
-
-export default Routes;  // Exportando o componente Routes
+}

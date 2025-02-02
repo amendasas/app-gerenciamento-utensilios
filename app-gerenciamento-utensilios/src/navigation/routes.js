@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'; // Import do Sta
 import TelaInicial from '../screens/telaInicial';
 import CadastroUtensilio from '../screens/cadastroUtensilio';
 import LeitorQRCode from '../screens/leitorQRCode';
+import UtensiliosCadastrados from '../screens/utensiliosCadastrados';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,12 @@ export default function Routes() {
         <Stack.Screen 
             name="LeitorQRCode"
             component={LeitorQRCode}
+            options={{ headerShown: false }}
+        />
+
+        <Stack.Screen 
+            name="UtensiliosCadastrados"
+            component={UtensiliosCadastrados}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

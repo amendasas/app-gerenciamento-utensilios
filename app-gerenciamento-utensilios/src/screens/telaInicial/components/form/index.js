@@ -31,6 +31,11 @@ export default function Form() {
                     <Text style={styles.buttonText}>Cadastrar Utensílio</Text>
                 </TouchableOpacity>
 
+                {/* Terceiro botão: usado para listar os utensílios cadastrados */}
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("UtensiliosCadastrados")}>
+                    <Text style={styles.buttonText}>Itens Cadastrados</Text>
+                </TouchableOpacity>
+
                 {/* Link informativo para acessar informações de uso do aplicativo */}
                 <Text style={styles.link}>Acessar Informações de utilização do app</Text>
             </View>

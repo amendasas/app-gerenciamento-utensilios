@@ -22,6 +22,12 @@ export default function Routes() {
         />
 
         <Stack.Screen 
+            name="LeitorQRCode"
+            component={LeitorQRCode}
+            options={{ headerShown: false }}
+        />
+
+        <Stack.Screen 
             name="UtensiliosCadastrados"
             component={UtensiliosCadastrados}
             options={{ headerShown: false }}

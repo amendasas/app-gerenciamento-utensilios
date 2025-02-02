@@ -13,8 +13,39 @@ export default function Form() {
     const navigation = useNavigation();
 
     // Atualiza os valores à medida que o usuário digita
-    const [nome, setNome] = useState('');
+    const [name, setName] = useState('');
     const [description, setdescription] = useState('');
+    const [qrValue, setQrValue] = useState(null);
+
+    const handleGenerateQRCode = async () => {
+        // Gera um QR Code único com os dados do utensílio
+        const qrData = JSON.stringify({ name, description, lastUsed: null });
+        
+        try {
+            const response = await fetch(':3000/utensilios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    description,
+                    lastUsed: null,
+                    qrCode: qrData // Envia o QR Code para o banco
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Erro ao salvar utensílio no banco de dados');
+            }
+    
+            alert("Utensílio cadastrado com sucesso!");
+    
+        } catch (error) {
+            console.error("Erro ao cadastrar utensílio:", error);
+            alert("Erro ao cadastrar utensílio.");
+        }
+    };
 
     return (
         <View>
@@ -26,8 +57,8 @@ export default function Form() {
                 <TextInput style={styles.textInputNome} 
                     placeholder="Nome do Utensílio" 
                     placeholderTextColor="#575757" 
-                    value={nome} 
-                    onChangeText={setNome}
+                    value={name} 
+                    onChangeText={setName}
                     multiline 
                     maxLength={35}
 
@@ -48,17 +79,16 @@ export default function Form() {
                 {/* Container da imagem do QR Code */}
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require('./simboloQRCode.png')} // Caminho da imagem da mão (mesma pasta do arquivo "form")
+                        source={require('./simboloQRCode.png')} // Caminho da imagem do QR Code (mesma pasta do arquivo "form")
                         style={styles.image} // Aplicação do estilo definido para a imagem
                     />
                 </View>
 
-                {/* Primeiro botão: usado para iniciar a leitura de um QR Code */}
-                <TouchableOpacity style={styles.button}>
+                {/* Primeiro botão: usado para gerar um QR Code */}
+                <TouchableOpacity style={styles.button} onPress={handleGenerateQRCode}>
                     <Text style={styles.buttonText}>Gerar QR Code</Text>
                 </TouchableOpacity>
 
-                {/* Link informativo para acessar informações de uso do aplicativo */}
                 <Text style={styles.link}>Salvar e Compartilhar QR Code</Text>
             </View>
         </View>

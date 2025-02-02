@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'; // Import do Stack Navigator
 import TelaInicial from '../screens/telaInicial';
 import CadastroUtensilio from '../screens/cadastroUtensilio';
+import UtensiliosCadastrados from '../screens/utensiliosCadastrados';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,12 @@ export default function Routes() {
         <Stack.Screen 
             name="CadastroUtensilio"
             component={CadastroUtensilio}
+            options={{ headerShown: false }}
+        />
+
+        <Stack.Screen 
+            name="UtensiliosCadastrados"
+            component={UtensiliosCadastrados}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

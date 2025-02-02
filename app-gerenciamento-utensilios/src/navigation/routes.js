@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'; // Import do Stack Navigator
 import TelaInicial from '../screens/telaInicial';
 import CadastroUtensilio from '../screens/cadastroUtensilio';
+import LeitorQRCode from '../screens/leitorQRCode';
 import UtensiliosCadastrados from '../screens/utensiliosCadastrados';
 
 const Stack = createStackNavigator();

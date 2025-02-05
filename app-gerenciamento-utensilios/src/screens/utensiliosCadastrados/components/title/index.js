@@ -10,15 +10,23 @@ export default function Title() {
 
     return (
         <View style={styles.container}>
-            {/* Ícone de Seta */}
             <TouchableOpacity style={styles.setaContainer} onPress={() => navigation.goBack()}>
                 <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>
 
-            {/* Essa view é usada para a estilização do título */}
+            <View style={styles.container}>
+                <Text></Text>
+                <Text></Text>
+            </View>
             <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>Cadastro de Utensílio</Text>
-                <Text style={styles.titleSubText}>PREENCHA AS INFORMAÇÕES DO UTENSÍLIO</Text>
+                <Text style={styles.titleText}>Itens Cadastrados</Text>
+                <Text style={styles.titleSubText}>Procure por um utensílio cadastrado</Text>
+            </View>
+
+            {/*ARRUMAR ESSA FORMATAÇÃO O TÍTULO ESTÁ MUITO FEIO*/}
+            <View style={styles.container}>
+                <Text></Text>
+                <Text></Text>
             </View>
         </View>
     );

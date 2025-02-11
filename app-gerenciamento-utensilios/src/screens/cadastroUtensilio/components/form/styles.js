@@ -13,15 +13,6 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
     },
 
-    textInputNome:{
-        backgroundColor: "#cccccc",
-        borderRadius: 18,
-        fontSize: 16,
-        paddingHorizontal: 20,
-        paddingVertical: 15,
-        width: 300,
-    },
-
     textInput:{
         backgroundColor: "#cccccc",
         borderRadius: 18,

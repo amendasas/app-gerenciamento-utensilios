@@ -54,7 +54,7 @@ export default function Form() {
 
                 <Text style={styles.titles}>NOME DO UTENSÍLIO</Text>
           
-                <TextInput style={styles.textInputNome} 
+                <TextInput style={styles.textInput} 
                     placeholder="Nome do Utensílio" 
                     placeholderTextColor="#575757" 
                     value={name} 

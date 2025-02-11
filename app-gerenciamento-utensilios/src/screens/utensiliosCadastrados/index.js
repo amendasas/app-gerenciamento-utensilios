@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 
 import Title from './components/title';
 import Main from './components/main';
@@ -7,10 +7,10 @@ import Main from './components/main';
 
 export default function UtensiliosCadastrados() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <Title/>
       <Main/>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#1E1E1E',
     justifyContent: 'center',
-    flexGrow: 1,
+    flex: 1,
   },
 });

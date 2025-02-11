@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, TextInput } from 'react-native';
 import styles from './styles'; 
 
 
 
 export default function UtensiliosCadastrados() {
     const [utensilios, setUtensilios] = useState([]);
+    const [searchWord, setSearchWord] = useState('');
 
     useEffect(() => {
         fetch(':3000/utensilios')
@@ -16,29 +17,17 @@ export default function UtensiliosCadastrados() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text></Text>
-                <Text></Text>
+
+            <View style={styles.adicionadosRecentementeContainer}>
+                <Text style={styles.adicionadosRecentemente}>Adicionados Recentemente</Text>
             </View>
 
-            <View>
-                <Text>Adicionados Recentemente</Text>
-            </View>
-
-            <View>
-                <Text></Text>
-                <Text></Text>
-            </View>
-
-            <View>
+            <View style={styles.listContainer}>
                 <FlatList
-                    scrollEnabled={false} 
 
-                    data={utensilios.map((item, index) => ({
-                        id: item._id,
-                        name: item.name,
-                        description: item.description,
-                    }))}
+                    data={utensilios.filter(item =>
+                        item.name.toLowerCase().includes(searchWord.toLowerCase())
+                    )}
 
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
@@ -50,6 +39,10 @@ export default function UtensiliosCadastrados() {
                         </View>
                     )}
                 />
+            </View>
+
+            <View style={styles.searchBarContainer}>
+                <TextInput style={styles.searchBar} onChangeText={setSearchWord} value={searchWord}></TextInput>
             </View>
         </View>
     );

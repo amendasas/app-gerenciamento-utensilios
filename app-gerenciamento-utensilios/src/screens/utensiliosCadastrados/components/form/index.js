@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TextInput } from 'react-native';
+import { View, Text, FlatList, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles'; 
+import { useNavigation } from '@react-navigation/native';
 
 
 
 export default function UtensiliosCadastrados() {
+    const navigation = useNavigation();
+
     const [utensilios, setUtensilios] = useState([]);
     const [searchWord, setSearchWord] = useState('');
 
@@ -29,14 +32,17 @@ export default function UtensiliosCadastrados() {
                         item.name.toLowerCase().includes(searchWord.toLowerCase())
                     )}
 
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.name}
                     renderItem={({ item }) => (
-                        <View style={styles.itemContainer}>
+                        <TouchableOpacity 
+                            style={styles.itemContainer} 
+                            onPress={() => navigation.navigate('HistoricoUtilizacao', { utensilio: item })}
+                        >
                             <Text style={styles.itemText} numberOfLines={2}>
                                 <Text style={{ fontWeight: 'bold' }}>{item.name}: </Text>
                                 {item.description}
                             </Text>
-                        </View>
+                        </TouchableOpacity>
                     )}
                 />
             </View>

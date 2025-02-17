@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Color from './../../../../components/colors';
 
 const styles = StyleSheet.create({
     // Estilo base da tela do formulário (não está sendo utilizado diretamente aqui, mas pode ser aproveitado no futuro)
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 
     // Estilo dos botões (tanto "Ler QR Code" quanto "Cadastrar Utensílio")
     button: {
-        backgroundColor: '#1E1E1E', // Cor de fundo escura para contraste
+        backgroundColor: Color.background, // Cor de fundo escura para contraste
         paddingVertical: 15, // Espaçamento vertical interno do botão
         paddingHorizontal: 20, // Espaçamento horizontal interno do botão
         borderRadius: 10, // Bordas arredondadas
@@ -35,19 +36,18 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Centraliza o texto do botão horizontalmente
     },
     buttonText: {
-        color: '#FFFFFF', // Cor do texto do botão (branca para contraste)
+        color: Color.white, // Cor do texto do botão (branca para contraste)
         fontSize: 16, // Tamanho da fonte do texto
         fontWeight: 'bold', // Deixa o texto em negrito
     },
 
     // Estilo do link informativo abaixo dos botões
     link: {
-        color: '#A9A9A9', // Cor cinza clara para o link
+        color: Color.link, // Cor cinza clara para o link
         marginTop: 20, // Espaçamento acima do link
         textDecorationLine: 'underline', // Sublinhar o texto para indicar que é clicável
         fontSize: 16, // Tamanho da fonte do texto do link
     },
 });
-
 
 export default styles;

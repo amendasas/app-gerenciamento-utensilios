@@ -2,6 +2,7 @@ import { StyleSheet, View, } from 'react-native';
 
 import Title from './components/title';
 import Main from './components/main';
+import Color from './../../components/colors';
 
 
 
@@ -18,7 +19,7 @@ export default function TelaInicial() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1E1E',
+    backgroundColor: Color.background,
     justifyContent: 'center',
   },
 });

@@ -1,6 +1,6 @@
 import { StyleSheet, ScrollView} from 'react-native';
 
-import Title from './components/title';
+import Title from './../../components/title'
 import Main from './components/main';
 
 
@@ -8,7 +8,7 @@ import Main from './components/main';
 export default function CadastroUtensilio() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Title/>
+      <Title title='Cadastro de Utensílio' subTitle='PREENCHA AS INFORMAÇÕES DO UTENSÍLIO'/>
       <Main/>
     </ScrollView>
   );

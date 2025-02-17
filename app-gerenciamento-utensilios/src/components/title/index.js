@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import styles from './styles'; // Importa os estilos do arquivo styles.js
+import styles from './styles';
 
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons"; // Importa um ícone de Seta
+import { Ionicons } from "@expo/vector-icons";
 
-export default function Title() {
+export default function Title({ title, subTitle }) {
     const navigation = useNavigation();
 
     return (
@@ -15,10 +15,9 @@ export default function Title() {
                 <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>
 
-            {/* Essa view é usada para a estilização do título */}
             <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>Cadastro de Utensílio</Text>
-                <Text style={styles.titleSubText}>PREENCHA AS INFORMAÇÕES DO UTENSÍLIO</Text>
+                <Text style={styles.titleText}>{title}</Text>
+                <Text style={styles.titleSubText}>{subTitle}</Text>
             </View>
         </View>
     );

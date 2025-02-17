@@ -1,6 +1,6 @@
 import { StyleSheet, View} from 'react-native';
 
-import Title from './components/title';
+import Title from './../../components/title'
 import Main from './components/main';
 
 
@@ -8,7 +8,7 @@ import Main from './components/main';
 export default function UtensiliosCadastrados() {
   return (
     <View style={styles.container}>
-      <Title/>
+      <Title title='Itens Cadastrados' subTitle='Procure por um utensílio cadastrado'/>
       <Main/>
     </View>
   );

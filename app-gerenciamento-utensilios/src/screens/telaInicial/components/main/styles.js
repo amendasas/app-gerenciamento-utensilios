@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import Color from './../../../../components/colors';
 
 const styles = StyleSheet.create({
     main: {
         flex: 3,
-        backgroundColor: '#FFFFFF', // Fundo branco dentro da borda
-        borderTopRightRadius: 50, // Bordas arredondadas no topo
-        alignItems: 'center', // Centraliza o conteúdo horizontalmente
-        justifyContent: 'flex-start', // Mantém o conteúdo no topo
+        backgroundColor: Color.white,
+        borderTopRightRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
     },
 });
 

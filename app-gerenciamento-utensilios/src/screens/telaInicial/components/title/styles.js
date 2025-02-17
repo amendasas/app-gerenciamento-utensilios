@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
+import Color from './../../../../components/colors';
 
 const styles = StyleSheet.create({
     titleContainer: {
-        alignItems: 'center', // Centraliza o texto horizontalmente,
+        alignItems: 'center',
         flex: 1,
         justifyContent: "center",
     },
     titleText: {
-        fontSize: 40, // Tamanho da fonte maior
-        fontWeight: 'bold', // Negrito
-        color: '#FFFFFF', // Cor branca
-        textAlign: 'center', // Centraliza o texto
+        fontSize: 40,
+        fontWeight: 'bold',
+        color: Color.white,
+        textAlign: 'center',
         marginTop: 50,
     },
 });

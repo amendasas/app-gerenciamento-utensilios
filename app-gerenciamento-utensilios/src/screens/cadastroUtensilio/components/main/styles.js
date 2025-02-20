@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     main: {
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        borderTopRightRadius: 50,
         flex: 0.2,
-        backgroundColor: '#FFFFFF', // Fundo branco dentro da borda
-        borderTopRightRadius: 50, // Bordas arredondadas no topo
-        alignItems: 'center', // Centraliza o conteúdo horizontalmente
-        justifyContent: 'flex-start', // Mantém o conteúdo no topo
+        justifyContent: 'flex-start',
     },
 });
 

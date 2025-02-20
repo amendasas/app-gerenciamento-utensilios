@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-import styles from './styles'; // Importa os estilos do arquivo styles.js
+import styles from './styles';
 
 import { useNavigation } from '@react-navigation/native';
 
 
 
-// Função principal que representa o formulário da primeira tela "Gestão de Utensílios"
 export default function Form() {
-    // Faz o Navigation funcionar.
     const navigation = useNavigation();
 
     // Atualiza os valores à medida que o usuário digita

@@ -17,7 +17,7 @@ export default function CadastroUtensilio() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#1E1E1E',
-    justifyContent: 'center',
     flexGrow: 1,
+    justifyContent: 'center',
   },
 });

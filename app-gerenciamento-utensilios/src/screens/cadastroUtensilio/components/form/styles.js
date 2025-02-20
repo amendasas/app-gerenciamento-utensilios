@@ -1,60 +1,52 @@
 import { StyleSheet } from 'react-native';
+import Color from './../../../../components/colors';
 
 const styles = StyleSheet.create({
-    // Estilo para alinhar os itens horizontalmente
     containerArrumador:{
-        alignItems: 'center', // Centraliza os itens horizontalmente
+        alignItems: 'center',
     },
-
     titles:{
-        color: "#999999",
+        alignSelf: "flex-start",
+        color: Color.gray,
         paddingBottom: 10,
         paddingTop: 40,
-        alignSelf: "flex-start",
     },
-
     textInput:{
-        backgroundColor: "#cccccc",
+        backgroundColor: Color.textInput,
         borderRadius: 18,
         fontSize: 16,
         paddingHorizontal: 20,
         paddingVertical: 15,
         width: 300,
     },
-    
-    // Estilo do container da imagem do QR Code
     imageContainer: {
+        marginBottom: 30,
         marginTop: 30, 
-        marginBottom: 30, // Espaçamento abaixo da imagem
     },
     image: {
-        width: 180, // Largura da imagem em pixels
-        height: 180, // Altura da imagem em pixels
+        height: 180,
+        width: 180,
     },
-
-    // Estilo dos botões (tanto "Ler QR Code" quanto "Cadastrar Utensílio")
     button: {
-        backgroundColor: '#1E1E1E', // Cor de fundo escura para contraste
-        paddingVertical: 15, // Espaçamento vertical interno do botão
-        paddingHorizontal: 20, // Espaçamento horizontal interno do botão
-        borderRadius: 10, // Bordas arredondadas
-        marginBottom: 10, // Espaçamento entre os botões
-        width: '300', // Botão ocupa 80% da largura do container pai
-        alignItems: 'center', // Centraliza o texto do botão horizontalmente
+        alignItems: 'center',
+        backgroundColor: Color.background,
+        borderRadius: 10,
+        marginBottom: 10,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        width: '300',
     },
     buttonText: {
-        color: '#FFFFFF', // Cor do texto do botão (branca para contraste)
-        fontSize: 16, // Tamanho da fonte do texto
-        fontWeight: 'bold', // Deixa o texto em negrito
+        color: Color.white,
+        fontSize: 16,
+        fontWeight: 'bold',
     },
-
-    // Estilo do link informativo abaixo dos botões
     link: {
-        color: '#A9A9A9', // Cor cinza clara para o link
-        marginTop: 10, // Espaçamento acima do link
-        textDecorationLine: 'underline', // Sublinhar o texto para indicar que é clicável
-        fontSize: 14, // Tamanho da fonte do texto do link
-        marginBottom: 30, // Espaçamento abaixo da imagem
+        color: Color.link,
+        fontSize: 14,
+        marginBottom: 30,
+        marginTop: 10,
+        textDecorationLine: 'underline',
     },
 });
 

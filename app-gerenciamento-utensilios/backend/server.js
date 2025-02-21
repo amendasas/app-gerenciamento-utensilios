@@ -44,6 +44,21 @@ app.post('/utensilios', async (req, res) => {
     }
 });
 
+app.get('/utensilios/:name', async (req, res) => {
+    try {
+        const nomeUtensilio = req.params.name;
+
+        const utensilio = await Utensilio.findOne({ name: { $regex: new RegExp(`^${nomeUtensilio}$`, "i") } });
+
+        if (!utensilio) {
+            return res.status(404).json({ error: 'Utensílio não encontrado.' });
+        }
+
+        res.json(utensilio);
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar utensílio.' });
+    }
+});
 
 // Iniciando o servidor
 app.listen(PORT, () => {

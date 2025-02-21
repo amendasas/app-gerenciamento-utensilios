@@ -2,12 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Modal, Alert, Text, TouchableOpacity } from "react-native";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useNavigation } from "@react-navigation/native";
-import * as Linking from "expo-linking"; // Import para abrir URLs
 
 export default function LeitorQRCode() {
     const [modalIsVisible, setModalIsVisible] = useState(true);
     const [permission, requestPermission] = useCameraPermissions();
-    const qrCodeLock = useRef(false);
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -23,22 +21,24 @@ export default function LeitorQRCode() {
         checkPermission();
     }, []);
 
-    function handleQRCodeRead(data) {
-        if (!qrCodeLock.current) {
-            qrCodeLock.current = true;
-            setModalIsVisible(false);
-
-            if (data.startsWith("http://") || data.startsWith("https://")) {
-                // Se for uma URL, abre diretamente no navegador
-                Linking.openURL(data).catch(() => {
-                    Alert.alert("Erro", "Não foi possível abrir o link.");
-                });
-            } else {
-                // Se não for uma URL, apenas exibe um alerta
-                Alert.alert("QR Code Lido", data, [
-                    { text: "OK", onPress: () => navigation.goBack() }
-                ]);
+    async function handleQRCodeRead(data) {
+        try {
+            const qrData = JSON.parse(data);
+            if (!qrData.name) {
+                throw new Error("QR Code inválido: nome do utensílio não encontrado.");
             }
+    
+            const response = await fetch(':3000/utensilios/${encodeURIComponent(qrData.name)}');
+            if (!response.ok) {
+                throw new Error("Utensílio não encontrado.");
+            }
+    
+            const item = await response.json();
+            setModalIsVisible(false);
+            navigation.navigate("HistoricoUtilizacao", { utensilio: item });
+            
+        } catch (error) {
+            Alert.alert("Erro", error.message);
         }
     }
 

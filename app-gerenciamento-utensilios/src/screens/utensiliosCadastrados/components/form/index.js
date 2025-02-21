@@ -13,7 +13,7 @@ export default function UtensiliosCadastrados() {
     const [modalVisible, setModalVisible] = useState(false); // Estado para o modal
 
     useEffect(() => {
-        fetch('http://192.168.0.4:3000/utensilios')
+        fetch(':3000/utensilios')
             .then(response => response.json())
             .then(data => setUtensilios(data))
             .catch(error => console.error('Erro ao buscar utensílios:', error));
@@ -51,11 +51,10 @@ export default function UtensiliosCadastrados() {
                     style={styles.sortButtonContainer} 
                     onPress={() => setModalVisible(true)}
                 >
-                    <Icon name="chevron-down" size={21} color="#4d4c4c" /> {/* Ícone de seta para baixo cinza */}
+                    <Icon name="chevron-down" size={21} color="#4d4c4c" />
                 </TouchableOpacity>
             </View>
 
-            {/* Modal para escolher o critério de ordenação */}
             <Modal
     animationType="slide"
     transparent={true}
@@ -66,7 +65,6 @@ export default function UtensiliosCadastrados() {
         <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Escolha a ordenação</Text>
 
-            {/* Botão "Ordenar por Nome" */}
             <TouchableOpacity
                 style={styles.modalButton}
                 onPress={() => {
@@ -77,10 +75,8 @@ export default function UtensiliosCadastrados() {
                 <Text style={styles.modalButtonText}>Ordenar por Nome</Text>
             </TouchableOpacity>
 
-            {/* Espaço entre os botões */}
             <View style={styles.buttonSpacer} />
 
-            {/* Botão "Ordenar por Data" */}
             <TouchableOpacity
                 style={styles.modalButton}
                 onPress={() => {
@@ -91,10 +87,8 @@ export default function UtensiliosCadastrados() {
                 <Text style={styles.modalButtonText}>Ordenar por Data</Text>
             </TouchableOpacity>
 
-            {/* Espaço entre os botões */}
             <View style={styles.buttonSpacer} />
 
-            {/* Botão "Fechar" */}
             <TouchableOpacity
                 style={[styles.modalButton, styles.closeButton]}
                 onPress={() => setModalVisible(false)}

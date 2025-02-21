@@ -16,9 +16,8 @@ export default function Form() {
     const [qrValue, setQrValue] = useState(null);
 
     const handleGenerateQRCode = async () => {
-        // Gera um QR Code único com os dados do utensílio
         const qrData = JSON.stringify({ name, description, lastUsed: null });
-        
+    
         try {
             const response = await fetch(':3000/utensilios', {
                 method: 'POST',
@@ -33,17 +32,29 @@ export default function Form() {
                 }),
             });
     
+            const responseData = await response.json(); // Converte a resposta para JSON
+    
             if (!response.ok) {
-                throw new Error('Erro ao salvar utensílio no banco de dados');
+                if (responseData.error === "Utensílio já cadastrado!") {
+                    alert("Erro: Esse utensílio já foi cadastrado!");
+                } else {
+                    throw new Error(responseData.error || "Erro ao salvar utensílio no banco de dados");
+                }
+                return;
             }
     
             alert("Utensílio cadastrado com sucesso!");
+            
+            // Aqui você pode limpar os campos depois do cadastro
+            setName('');
+            setdescription('');
     
         } catch (error) {
             console.error("Erro ao cadastrar utensílio:", error);
             alert("Erro ao cadastrar utensílio.");
         }
     };
+    
 
     return (
         <View>
@@ -58,7 +69,7 @@ export default function Form() {
                     value={name} 
                     onChangeText={setName}
                     multiline 
-                    maxLength={35}
+                    maxLength={30}
 
                 />
 

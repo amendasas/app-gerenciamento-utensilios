@@ -4,6 +4,7 @@ import TelaInicial from '../screens/telaInicial';
 import CadastroUtensilio from '../screens/cadastroUtensilio';
 import LeitorQRCode from '../screens/leitorQRCode';
 import UtensiliosCadastrados from '../screens/utensiliosCadastrados';
+import HistoricoUtilizacao from '../screens/historicoUtilizacao';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,12 @@ export default function Routes() {
         <Stack.Screen 
             name="UtensiliosCadastrados"
             component={UtensiliosCadastrados}
+            options={{ headerShown: false }}
+        />
+
+        <Stack.Screen 
+            name="HistoricoUtilizacao"
+            component={HistoricoUtilizacao}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

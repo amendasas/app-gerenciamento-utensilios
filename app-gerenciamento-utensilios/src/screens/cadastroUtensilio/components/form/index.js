@@ -21,7 +21,7 @@ export default function Form() {
         const qrData = JSON.stringify({ name, description, lastUsed: null });
     
         try {
-            const response = await fetch('http://192.168.0.4:3000/utensilios', {
+            const response = await fetch(':3000/utensilios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

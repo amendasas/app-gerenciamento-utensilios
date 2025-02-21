@@ -14,10 +14,6 @@ export default function Title() {
                 <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>
 
-            <View style={styles.container}>
-                <Text></Text>
-                <Text></Text>
-            </View>
             <View style={styles.titleContainer}>
                 <Text style={styles.titleText}>Itens Cadastrados</Text>
                 <Text style={styles.titleSubText}>Procure por um utensílio cadastrado</Text>

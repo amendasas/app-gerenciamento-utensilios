@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import styles from './styles';
+import styles from './styles'; // Importa os estilos do arquivo styles.js
 
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons"; // Importa um ícone de Seta
 
 export default function Title() {
     const navigation = useNavigation();
@@ -15,7 +15,14 @@ export default function Title() {
             </TouchableOpacity>
 
             <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>Histórico de{"\n"}Utilização</Text>
+                <Text style={styles.titleText}>Novo Registro</Text>
+                <Text style={styles.titleSubText}>Informe sobre a última utilização</Text>
+            </View>
+
+            {/*ARRUMAR ESSA FORMATAÇÃO O TÍTULO ESTÁ MUITO FEIO*/}
+            <View style={styles.container}>
+                <Text></Text>
+                <Text></Text>
             </View>
         </View>
     );

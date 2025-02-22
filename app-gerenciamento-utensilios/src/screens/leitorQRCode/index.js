@@ -28,7 +28,7 @@ export default function LeitorQRCode() {
                 throw new Error("QR Code inválido: nome do utensílio não encontrado.");
             }
     
-            const response = await fetch(':3000/utensilios/${encodeURIComponent(qrData.name)}');
+            const response = await fetch(`3000/utensilios/${encodeURIComponent(qrData.name)}`);
             if (!response.ok) {
                 throw new Error("Utensílio não encontrado.");
             }

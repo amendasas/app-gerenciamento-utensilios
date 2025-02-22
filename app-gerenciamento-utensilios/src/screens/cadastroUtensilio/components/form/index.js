@@ -19,7 +19,7 @@ export default function Form() {
         const qrData = JSON.stringify({ name, description, lastUsed: null });
     
         try {
-            const response = await fetch(':3000/utensilios', {
+            const response = await fetch('3000/utensilios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +58,6 @@ export default function Form() {
 
     return (
         <View>
-            {/* Essa View contém os componentes principais da tela "Cadastro de Utensílios" */}
             <View style={styles.containerArrumador}>
 
                 <Text style={styles.titles}>NOME DO UTENSÍLIO</Text>
@@ -85,7 +84,6 @@ export default function Form() {
                     maxLength={250}
                 />
 
-                {/* Container da imagem do QR Code */}
                 <View style={styles.imageContainer}>
                     <Image
                         source={require('./simboloQRCode.png')} // Caminho da imagem do QR Code (mesma pasta do arquivo "form")
@@ -93,7 +91,6 @@ export default function Form() {
                     />
                 </View>
 
-                {/* Primeiro botão: usado para gerar um QR Code */}
                 <TouchableOpacity style={styles.button} onPress={handleGenerateQRCode}>
                     <Text style={styles.buttonText}>Gerar QR Code</Text>
                 </TouchableOpacity>

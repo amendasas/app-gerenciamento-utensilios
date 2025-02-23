@@ -16,7 +16,7 @@ export default function UtensiliosCadastrados() {
     const [modalVisible, setModalVisible] = useState(false); // Estado para o modal
 
     useEffect(() => {
-        fetch(':3000/utensilios')
+        fetch('3000/utensilios')
             .then(response => response.json())
             .then(data => setUtensilios(data))
             .catch(error => console.error('Erro ao buscar utensílios:', error));

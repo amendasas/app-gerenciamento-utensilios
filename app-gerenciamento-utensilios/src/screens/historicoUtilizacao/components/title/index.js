@@ -10,7 +10,6 @@ export default function Title() {
 
     return (
         <View style={styles.container}>
-            {/* Ícone de Seta */}
             <TouchableOpacity style={styles.setaContainer} onPress={() => navigation.goBack()}>
                 <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>

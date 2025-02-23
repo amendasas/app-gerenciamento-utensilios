@@ -9,7 +9,7 @@ import styles from './styles';
 export default function Main() {
     return (
         <View style={styles.main}>
-            <Form />
+            <Form/>
         </View>
     );
 }

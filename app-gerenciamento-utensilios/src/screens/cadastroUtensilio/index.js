@@ -1,23 +1,23 @@
-import { StyleSheet, ScrollView} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 
-import Title from './../../components/title'
+import Title from '../../components/title'
 import Main from './components/main';
 
 
 
 export default function CadastroUtensilio() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <Title title='Cadastro de Utensílio' subTitle='PREENCHA AS INFORMAÇÕES DO UTENSÍLIO'/>
       <Main/>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#1E1E1E',
-    flexGrow: 1,
+    flex: 1,
     justifyContent: 'center',
   },
 });

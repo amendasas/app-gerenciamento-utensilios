@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, Modal, Button } from 'react-native';
-import styles from './styles'; 
+import { FlatList, Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Importando o ícone
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import styles from './styles'; 
+
+
 
 export default function UtensiliosCadastrados() {
     const navigation = useNavigation();
@@ -75,8 +78,6 @@ export default function UtensiliosCadastrados() {
                 <Text style={styles.modalButtonText}>Ordenar por Nome</Text>
             </TouchableOpacity>
 
-            <View style={styles.buttonSpacer} />
-
             <TouchableOpacity
                 style={styles.modalButton}
                 onPress={() => {
@@ -86,8 +87,6 @@ export default function UtensiliosCadastrados() {
             >
                 <Text style={styles.modalButtonText}>Ordenar por Data</Text>
             </TouchableOpacity>
-
-            <View style={styles.buttonSpacer} />
 
             <TouchableOpacity
                 style={[styles.modalButton, styles.closeButton]}
@@ -126,7 +125,7 @@ export default function UtensiliosCadastrados() {
                 onChangeText={setSearchWord} 
                 value={searchWord}
                 placeholder="Pesquisar"
-                placeholderTextColor="#FFF"  // Define o placeholder branco
+                placeholderTextColor="#FFF"
                 multiline 
                 maxLength={24}
             />

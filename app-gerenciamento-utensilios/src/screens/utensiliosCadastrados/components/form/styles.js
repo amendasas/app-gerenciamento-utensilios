@@ -1,46 +1,73 @@
 import { StyleSheet } from 'react-native';
+import Color from './../../../../components/colors';
 
 const styles = StyleSheet.create({
+    adicionadosRecentemente: {
+        color: Color.grayEscuro,
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    adicionadosRecentementeContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 6,
+        marginHorizontal: '11%',
+        marginTop: 8,
+    },
+    closeButton: {
+        backgroundColor: Color.textInput,
+    },
     container: {
         flex: 1,
     },
-    adicionadosRecentementeContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 8,
-        marginBottom: 6,
-        marginHorizontal: '11%', 
-    },
-    adicionadosRecentemente: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#4d4c4c',
-    },
-    sortButtonContainer: {
-        padding: 8,
+    itemContainer: {
+        alignItems: 'flex-start',
+        alignSelf: 'center',
+        backgroundColor: Color.grayClaro,
+        borderRadius: 10,
         justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 8,
-        width: 42,
-        height: 42,
+        marginBottom: '3%',
+        marginHorizontal: '11%',
+        paddingHorizontal: 15,
+        paddingVertical: 16,
+        width: 320,
     },
-    sortButton: {
-        fontSize: 24,
-        color: 'white',
+    itemText: {
+        fontSize: 16,
+        lineHeight: 22,
+        textAlign: 'left',
+    },
+    listContainer: {
+        flex: 1,
+        paddingHorizontal: 10,
     },
     modalBackground: {
-        flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        flex: 1,
+        justifyContent: 'center',
+    },
+    modalButton: {
+        alignItems: 'center',
+        backgroundColor: Color.grayClaro,
+        borderRadius: 10,
+        justifyContent: 'center',
+        marginBottom: 12,
+        paddingVertical: 12,
+        width: '100%',
+    },
+    modalButtonText: {
+        color: '#000',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     modalContainer: {
-        width: '80%',
-        padding: 20,
-        backgroundColor: '#fff',
-        borderRadius: 10,
         alignItems: 'center',
+        backgroundColor: Color.white,
+        borderRadius: 10,
+        padding: 20,
+        width: '80%',
     },
     modalTitle: {
         fontSize: 20,
@@ -48,62 +75,32 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         textAlign: 'center',
     },
-    modalButton: {
-        backgroundColor: '#EAEAEA',
-        paddingVertical: 12,
-        width: '100%',
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 12, // Espaço entre os botões
-    },
-    modalButtonText: {
-        fontSize: 16,
-        color: '#000',
-        fontWeight: 'bold',
-    },
-    closeButton: {
-        backgroundColor: '#CCCCCC',
-    },
-    itemContainer: {
-        backgroundColor: "#EAEAEA",
-        borderRadius: 10,
-        marginBottom: '3%',
-        marginHorizontal: '11%',
-        paddingHorizontal: 15,
-        paddingVertical: 16,
-        alignSelf: 'center', 
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        width: 320,
-    },
-    itemText: {
-        fontSize: 16,
-        textAlign: 'left',
-        lineHeight: 22
-    },
-    listContainer: {
-        flex: 1,
-        paddingHorizontal: 10,
-    },
-    searchBarContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        borderRadius: 999,
-        position: 'absolute',
-        bottom: 25,
-        width: '85%',  // Ajuste para responsividade
-        height: 45,     // Melhor altura para input
-        alignSelf: 'center',
-    },
     searchBar: {
-        color: '#FFFF',
-        textAlign: 'center',
+        color: Color.white,
         fontSize: 16,
         lineHeight: 20,
         paddingVertical: 12,
+        textAlign: 'center',
         width: '80%',
+    },
+    searchBarContainer: {
+        alignItems: 'center',
+        alignSelf: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        borderRadius: 999,
+        bottom: 25,
+        height: 45,
+        justifyContent: 'center',
+        position: 'absolute',
+        width: '85%',
+    },
+    sortButtonContainer: {
+        alignItems: 'center',
+        borderRadius: 8,
+        height: 42,
+        justifyContent: 'center',
+        padding: 8,
+        width: 42,
     },
 });
 

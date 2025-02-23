@@ -4,7 +4,9 @@ const Color = {
     background: '#1E1E1E',
     link: '#A9A9A9',
     gray: '#999999',
-    textInput: '#cccccc'
+    grayEscuro: '#4D4C4C',
+    grayClaro: '#EAEAEA',
+    textInput: '#CCCCCC'
 
 };
 

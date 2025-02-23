@@ -8,11 +8,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     titleText: {
+        color: Color.white,
         fontSize: 40,
         fontWeight: 'bold',
-        color: Color.white,
-        textAlign: 'center',
         marginTop: 50,
+        textAlign: 'center',
     },
 });
 

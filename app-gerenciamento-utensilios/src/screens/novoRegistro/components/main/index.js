@@ -1,14 +1,25 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+
 import Form from "../form";
-import styles from './styles'; // Importa os estilos do arquivo styles.js
+import Color from './../../../../components/colors';
 
 
 
 export default function Main() {
     return (
         <View style={styles.main}>
-            <Form />
+            <Form/>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    main: {
+        alignItems: 'center',
+        backgroundColor: Color.white,
+        borderTopRightRadius: 50,
+        flex: 3,
+        justifyContent: 'flex-start',
+    },
+});

@@ -1,8 +1,8 @@
 import { StyleSheet, View} from 'react-native';
 
-import Color from './../../components/colors';
 import Main from './components/main';
 import Title from '../../components/title'
+import Color from './../../components/colors';
 
 
 

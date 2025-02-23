@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
-import styles from './styles';
-
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+
+import styles from './styles';
+import Color from "./../../../../components/colors";
 
 
 
@@ -13,13 +14,12 @@ export default function Form() {
     // Atualiza os valores à medida que o usuário digita
     const [name, setName] = useState('');
     const [description, setdescription] = useState('');
-    const [qrValue, setQrValue] = useState(null);
 
     const handleGenerateQRCode = async () => {
         const qrData = JSON.stringify({ name, description, lastUsed: null });
     
         try {
-            const response = await fetch('3000/utensilios', {
+            const response = await fetch(':3000/utensilios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,11 +28,11 @@ export default function Form() {
                     name,
                     description,
                     lastUsed: null,
-                    qrCode: qrData // Envia o QR Code para o banco
+                    qrCode: qrData
                 }),
             });
     
-            const responseData = await response.json(); // Converte a resposta para JSON
+            const responseData = await response.json();
     
             if (!response.ok) {
                 if (responseData.error === "Utensílio já cadastrado!") {
@@ -44,8 +44,6 @@ export default function Form() {
             }
     
             alert("Utensílio cadastrado com sucesso!");
-            
-            // Aqui você pode limpar os campos depois do cadastro
             setName('');
             setdescription('');
     
@@ -54,7 +52,6 @@ export default function Form() {
             alert("Erro ao cadastrar utensílio.");
         }
     };
-    
 
     return (
         <View>
@@ -64,12 +61,11 @@ export default function Form() {
           
                 <TextInput style={styles.textInput} 
                     placeholder="Nome do Utensílio" 
-                    placeholderTextColor="#575757" 
+                    placeholderTextColor={Color.grayEscuro} 
                     value={name} 
                     onChangeText={setName}
                     multiline 
                     maxLength={30}
-
                 />
 
                 <Text style={styles.titles}>DESCRIÇÃO</Text>
@@ -77,7 +73,7 @@ export default function Form() {
                 <TextInput
                     style={styles.textInput}
                     placeholder="Descrição do Utensílio"
-                    placeholderTextColor="#575757"
+                    placeholderTextColor={Color.grayEscuro} 
                     value={description}
                     onChangeText={setdescription}
                     multiline 
@@ -86,8 +82,8 @@ export default function Form() {
 
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require('./simboloQRCode.png')} // Caminho da imagem do QR Code (mesma pasta do arquivo "form")
-                        style={styles.image} // Aplicação do estilo definido para a imagem
+                        source={require('./simboloQRCode.png')}
+                        style={styles.image}
                     />
                 </View>
 

@@ -1,7 +1,8 @@
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import Title from './components/title';
 import Main from './components/main';
+import Title from './components/title';
+import Color from './../../components/colors';
 
 
 
@@ -16,8 +17,8 @@ export default function HistoricoUtilizacao() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1E1E1E',
-    justifyContent: 'center',
+    backgroundColor: Color.background,
     flex: 1,
+    justifyContent: 'center',
   },
 });

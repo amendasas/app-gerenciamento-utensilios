@@ -1,12 +1,15 @@
-import { StyleSheet, View, ScrollView} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import Title from './../../components/title'
 import Main from './components/main';
+import Title from './../../components/title'
+import Color from './../../components/colors';
+
+
 
 export default function NovoRegistro() {
   return (
     <View style={styles.container}>
-      <Title title='Novo Registro' subTitle='Informe sobre a última utilização'/>
+      <Title title="Novo Registro" subTitle={"Adicione um novo registro de uso para \no utensílio"} />
       <Main/>
     </View>
   );
@@ -14,7 +17,7 @@ export default function NovoRegistro() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: Color.background,
     flex: 1,
     justifyContent: 'center',
   },

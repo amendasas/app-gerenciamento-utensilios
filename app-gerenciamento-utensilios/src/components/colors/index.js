@@ -1,13 +1,12 @@
 const Color = {
-    black: '#000000',
-    white: '#FFFFFF',
     background: '#1E1E1E',
-    link: '#A9A9A9',
+    black: '#000000',
     gray: '#999999',
-    grayEscuro: '#4D4C4C',
     grayClaro: '#EAEAEA',
-    textInput: '#CCCCCC'
-
+    grayEscuro: '#4D4C4C',
+    link: '#A9A9A9',
+    textInput: '#CCCCCC',
+    white: '#FFFFFF',
 };
 
 export default Color;

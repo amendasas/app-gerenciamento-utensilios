@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Color from './../../../../components/colors';
 import Form from "../form";
+import Color from './../../../../components/colors';
 
 
 

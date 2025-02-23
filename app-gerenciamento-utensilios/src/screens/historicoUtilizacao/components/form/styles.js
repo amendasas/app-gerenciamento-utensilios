@@ -1,44 +1,45 @@
 import { StyleSheet } from 'react-native';
+import Color from "./../../../../components/colors";
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        width: "100%",
+    button: {
         alignItems: 'center',
-    },
-    itemContainer:{
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        paddingTop: "7%",
-    },
-    item:{
-        color: '#A9A9A9',
-        fontSize: 20
-    },
-    itemNome:{
-        color: '#000',
-        fontSize: 40,
-        fontWeight: "bold"
+        backgroundColor: Color.background,
+        borderRadius: 10,
+        paddingVertical: 15,
+        width: '100%',
     },
     buttonContainer: {
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'center',
         paddingHorizontal: '7%',
         paddingVertical: '7%',
         width: '100%',
     },
-    button: {
-        backgroundColor: '#1E1E1E',
-        paddingVertical: 15,
-        borderRadius: 10,
-        width: '100%',
-        alignItems: 'center'
-    },
     buttonText: {
-        color: '#FFFFFF', 
+        color: Color.white, 
         fontSize: 16,
-        fontWeight: 'bold'
-    }
+        fontWeight: 'bold',
+    },
+    container: {
+        alignItems: 'center',
+        flex: 1,
+        width: "100%",
+    },
+    item: {
+        color: Color.link,
+        fontSize: 20,
+    },
+    itemContainer: {
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        paddingTop: "7%",
+    },
+    itemNome: {
+        color: Color.black,
+        fontSize: 40,
+        fontWeight: "bold",
+    },
 });
 
 export default styles;

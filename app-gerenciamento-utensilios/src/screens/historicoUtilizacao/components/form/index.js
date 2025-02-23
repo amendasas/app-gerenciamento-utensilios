@@ -1,14 +1,16 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import styles from './styles';
 import { useRoute, useNavigation } from '@react-navigation/native'; 
+
+import styles from './styles';
+
+
 
 export default function Form() {
     const route = useRoute();
     const { utensilio } = route.params; 
     const navigation = useNavigation();  
 
-   
 
     return (
         <View style={styles.container}>

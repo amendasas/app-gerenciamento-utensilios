@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles'; 
+import Color from './../../../../components/colors';
 
 
 
@@ -16,7 +17,7 @@ export default function UtensiliosCadastrados() {
     const [modalVisible, setModalVisible] = useState(false); // Estado para o modal
 
     useEffect(() => {
-        fetch('3000/utensilios')
+        fetch(':3000/utensilios')
             .then(response => response.json())
             .then(data => setUtensilios(data))
             .catch(error => console.error('Erro ao buscar utensílios:', error));
@@ -54,7 +55,7 @@ export default function UtensiliosCadastrados() {
                     style={styles.sortButtonContainer} 
                     onPress={() => setModalVisible(true)}
                 >
-                    <Icon name="chevron-down" size={21} color="#4d4c4c" />
+                    <Icon name="chevron-down" size={21} color={Color.grayEscuro} />
                 </TouchableOpacity>
             </View>
 
@@ -125,7 +126,7 @@ export default function UtensiliosCadastrados() {
                 onChangeText={setSearchWord} 
                 value={searchWord}
                 placeholder="Pesquisar"
-                placeholderTextColor="#FFF"
+                placeholderTextColor={Color.white}
                 multiline 
                 maxLength={24}
             />

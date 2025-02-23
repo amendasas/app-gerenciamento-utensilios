@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { ScrollView, TextInput, TouchableOpacity, Text } from "react-native";
 import { useRoute } from "@react-navigation/native";
+
 import styles from './styles';
+
+
 
 export default function NovoRegistro() {
     const route = useRoute();

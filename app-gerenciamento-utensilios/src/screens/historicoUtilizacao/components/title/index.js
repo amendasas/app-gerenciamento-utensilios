@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import styles from './styles';
-
+import { Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+
+import styles from './styles';
+import Color from './../../../../components/colors';
+
+
 
 export default function Title() {
     const navigation = useNavigation();
@@ -11,7 +14,7 @@ export default function Title() {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.setaContainer} onPress={() => navigation.goBack()}>
-                <Ionicons name="arrow-back" size={30} color="#FFF" style={{ transform: [{ scaleY:  1.0}] }}/>
+                <Ionicons name="arrow-back" size={30} color={Color.white} style={{ transform: [{ scaleY:  1.0}] }}/>
             </TouchableOpacity>
 
             <View style={styles.titleContainer}>

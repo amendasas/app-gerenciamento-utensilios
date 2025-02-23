@@ -1,7 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
-import { StyleSheet, View, Modal, Alert, Text, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useNavigation } from "@react-navigation/native";
+
+import Color from './../../components/colors';
+
+
 
 export default function LeitorQRCode() {
     const [modalIsVisible, setModalIsVisible] = useState(true);
@@ -28,7 +32,7 @@ export default function LeitorQRCode() {
                 throw new Error("QR Code inválido: nome do utensílio não encontrado.");
             }
     
-            const response = await fetch(`3000/utensilios/${encodeURIComponent(qrData.name)}`);
+            const response = await fetch(`:3000/utensilios/${encodeURIComponent(qrData.name)}`);
             if (!response.ok) {
                 throw new Error("Utensílio não encontrado.");
             }
@@ -64,24 +68,24 @@ export default function LeitorQRCode() {
 }
 
 const styles = StyleSheet.create({
-    footer: {
-        position: "absolute",
-        bottom: 32,
-        left: 32,
-        right: 32,
-    },
     button: {
-        backgroundColor: '#fff', 
-        paddingVertical: 15, 
-        paddingHorizontal: 20, 
+        alignItems: 'center', 
+        backgroundColor: Color.white, 
         borderRadius: 10, 
         marginBottom: 10, 
+        paddingHorizontal: 20, 
+        paddingVertical: 15, 
         width: '100%', 
-        alignItems: 'center', 
     },
     buttonText: {
-        color: '#1E1E1E', 
+        color: Color.background, 
         fontSize: 18, 
         fontWeight: 'bold', 
+    },
+    footer: {
+        bottom: 32,
+        left: 32,
+        position: "absolute",
+        right: 32,
     },
 });

@@ -12,7 +12,6 @@ export default function Form() {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            {/* Rótulo e caixa de texto para o nome */}
             <Text style={styles.label}>Seu nome</Text>
             <TextInput
                 style={styles.inputSmall}
@@ -22,7 +21,6 @@ export default function Form() {
                 maxLength={32}
             />
 
-            {/* Rótulo e caixa de texto para a descrição */}
             <Text style={styles.label}>Descrição de como foi utilizado</Text>
             <TextInput
                 style={styles.inputLarge}
@@ -34,7 +32,6 @@ export default function Form() {
                 scrollEnabled={true}  // Permite rolagem interna se o conteúdo exceder o tamanho da caixa
             />
 
-            {/* Botão para registrar */}
             <TouchableOpacity style={styles.button} onPress={handleRegistro}>
                 <Text style={styles.buttonText}>Registrar</Text>
             </TouchableOpacity>

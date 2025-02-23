@@ -7,5 +7,4 @@ const utensilioSchema = new mongoose.Schema({
     qrCode: String
 });
 
-// Exporta o modelo para ser usado no servidor
 module.exports = mongoose.model('Utensilios', utensilioSchema, 'Utensílios');

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     main: {
-        flex: 2.5,
+        flex: 3,
         backgroundColor: '#FFFFFF', // Fundo branco dentro da borda
         borderTopRightRadius: 50, // Bordas arredondadas no topo
         alignItems: 'center', // Centraliza o conteúdo horizontalmente

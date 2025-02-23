@@ -18,7 +18,9 @@ export default function Form() {
             </View>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("NovoRegistro")}> 
+                <TouchableOpacity 
+                    style={styles.button} 
+                    onPress={() => navigation.navigate("NovoRegistro", { utensilioName: utensilio.name })}>
                     <Text style={styles.buttonText}>Novo Registro</Text>
                 </TouchableOpacity>
             </View>

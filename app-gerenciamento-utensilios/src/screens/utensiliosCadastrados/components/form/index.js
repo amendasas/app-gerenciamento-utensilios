@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FlatList, Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import config from './../../../../../config';
 
 import styles from './styles'; 
 import Color from './../../../../components/colors';
@@ -17,7 +18,7 @@ export default function UtensiliosCadastrados() {
     const [modalVisible, setModalVisible] = useState(false); // Estado para o modal
 
     useEffect(() => {
-        fetch(':3000/utensilios')
+        fetch(`${config.IP_PESSOAL}:3000/utensilios`)
             .then(response => response.json())
             .then(data => setUtensilios(data))
             .catch(error => console.error('Erro ao buscar utensílios:', error));

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import config from './../../../../../config';
 
 import styles from './styles';
 import Color from "./../../../../components/colors";
@@ -19,7 +20,7 @@ export default function Form() {
         const qrData = JSON.stringify({ name, description, lastUsed: null });
     
         try {
-            const response = await fetch(':3000/utensilios', {
+            const response = await fetch(`${config.IP_PESSOAL}:3000/utensilios`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

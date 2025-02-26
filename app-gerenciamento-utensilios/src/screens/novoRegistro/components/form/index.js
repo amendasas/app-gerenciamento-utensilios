@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ScrollView, TextInput, TouchableOpacity, Text } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import config from './../../../../../config';
 
 import styles from './styles';
 
@@ -14,7 +15,7 @@ export default function NovoRegistro() {
 
     const handleRegistro = async () => {
         try {
-            const response = await fetch(':3000/utilizacoes', {
+            const response = await fetch(`${config.IP_PESSOAL}:3000/utilizacoes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

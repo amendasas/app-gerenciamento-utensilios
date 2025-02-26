@@ -1,14 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const Utensilio = require('./models/Utensilio');
 const Utilizacao = require('./models/Utilizacao');
+const MONGODB = process.env.MONGODB;
 
 const app = express();
 const PORT = 3000;
 
 // Conectando ao MongoDB Atlas
-mongoose.connect('')
+mongoose.connect(MONGODB)
     .then(() => console.log('Conectado ao MongoDB!'))
     .catch((error) => console.log('Erro ao se conectar:', error));
 

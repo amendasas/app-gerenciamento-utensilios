@@ -2,6 +2,11 @@ import { StyleSheet } from 'react-native';
 import Color from "./../../../../components/colors";
 
 const styles = StyleSheet.create({
+    atividadesRecentes: {
+        color: Color.grayEscuro,
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
     button: {
         alignItems: 'center',
         backgroundColor: Color.background,
@@ -40,6 +45,13 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: "bold",
     },
+    label: {
+        alignSelf: "flex-start",
+        color: Color.gray,
+        fontSize: 16,
+        paddingHorizontal: "5%",
+        paddingVertical: "1%",
+    }
 });
 
 export default styles;

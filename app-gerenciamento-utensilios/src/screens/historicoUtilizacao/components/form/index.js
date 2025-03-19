@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { FlatList, View, Text, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react"; 
+import { FlatList, View, Text, TouchableOpacity, Alert, TextInput, ActivityIndicator } from "react-native";
 import { useRoute, useNavigation } from '@react-navigation/native'; 
+import { printToFileAsync } from 'expo-print';
+import { shareAsync } from 'expo-sharing';
 import config from './../../../../../config';
-
 import styles from './styles';
-
-
 
 export default function Form() {
     const navigation = useNavigation(); 
@@ -13,6 +12,7 @@ export default function Form() {
     const { utensilio } = route.params;
 
     const [registros, setRegistros] = useState([]);
+    const [isGeneratingPDF, setIsGeneratingPDF] = useState(false); // Novo estado para controlar o processo de geração
 
     useEffect(() => {
         const update = navigation.addListener("focus", () => {
@@ -36,7 +36,50 @@ export default function Form() {
     
         return `${day}/${month}/${year}`;
     };
-    
+
+    // Função para gerar o PDF
+    const generatePDF = async () => {
+        setIsGeneratingPDF(true); // Ativar o estado de geração
+        const htmlContent = `
+            <html>
+                <head>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        h1 { color: red; }
+                        p { font-size: 16px; }
+                        .item { font-weight: bold; margin-top: 20px; }
+                        .registro { margin-top: 10px; }
+                    </style>
+                </head>
+                <body>
+                    <h1>Relatório de Utilização do Utensílio</h1>
+                    <p><span class="item">Item:</span> ${utensilio.name}</p>
+                    <h2>Atividades Recentes</h2>
+                    <ul>
+                        ${registros.map(item => `
+                            <li class="registro">${item.descriptionUso} - ${item.responsavelUso}, ${formatDate(item.dataUso)}</li>
+                        `).join('')}
+                    </ul>
+                </body>
+            </html>
+        `;
+
+        try {
+            // Gerar o PDF com o conteúdo HTML
+            const { uri } = await printToFileAsync({ html: htmlContent });
+            console.log('PDF gerado com sucesso:', uri);
+
+            // Compartilhar o PDF
+            await shareAsync(uri);
+
+        } catch (error) {
+            console.error('Erro ao gerar o PDF:', error);
+            Alert.alert('Erro', 'Ocorreu um erro ao gerar o PDF.');
+        } finally {
+            setIsGeneratingPDF(false); // Finalizar o estado de geração
+        }
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.itemContainer}>
@@ -58,9 +101,24 @@ export default function Form() {
                 data={registros}
                 keyExtractor={(item, index) => index.toString()} 
                 renderItem={({ item }) => (
-                    <Text style={styles.label}>{item.descriptionUso}</Text>
+                    <Text style={styles.label}>
+                        {`${item.descriptionUso} - ${item.responsavelUso}, ${formatDate(item.dataUso)}`}
+                    </Text>
                 )}
             />
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity 
+                    style={[styles.button, isGeneratingPDF && { backgroundColor: '#ccc' }]} // Mudando a cor durante o processamento
+                    onPress={generatePDF}
+                    disabled={isGeneratingPDF}> 
+                    {isGeneratingPDF ? (
+                        <ActivityIndicator size="small" color="#fff" /> // Indicador de carregamento
+                    ) : (
+                        <Text style={styles.buttonText}>Gerar Relatório</Text>
+                    )}
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }

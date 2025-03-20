@@ -44,11 +44,44 @@ export default function Form() {
             <html>
                 <head>
                     <style>
-                        body { font-family: Arial, sans-serif; padding: 20px; }
-                        h1 { color: red; }
-                        p { font-size: 16px; }
-                        .item { font-weight: bold; margin-top: 20px; }
-                        .registro { margin-top: 10px; }
+                        body { 
+                            font-family: Arial, sans-serif; 
+                            padding: 20px; 
+                            background-color: #f5f5f5; 
+                            color: #333; 
+                        }
+                        h1 { 
+                            color: #000; 
+                            font-size: 28px; 
+                            margin-bottom: 20px; 
+                        }
+                        h2 { 
+                            color: #444; 
+                            font-size: 24px; 
+                            margin-top: 30px; 
+                            margin-bottom: 15px; 
+                        }
+                        p { 
+                            font-size: 16px; 
+                            color: #555; 
+                        }
+                        .item { 
+                            font-weight: bold; 
+                            margin-top: 20px; 
+                            color: #222; 
+                        }
+                        .registro { 
+                            margin-top: 10px; 
+                            padding: 10px; 
+                            background-color: #fff; 
+                            border-left: 4px solid #888; 
+                            color: #666; 
+                            list-style-type: none; 
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+                        }
+                        ul { 
+                            padding-left: 0; 
+                        }
                     </style>
                 </head>
                 <body>

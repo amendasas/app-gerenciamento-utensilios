@@ -4,8 +4,7 @@ import { CameraView, useCameraPermissions } from "expo-camera";
 import { useNavigation } from "@react-navigation/native";
 
 import Color from './../../components/colors';
-
-
+import config from './../../../config';  // Adicione o caminho correto do arquivo de configuração
 
 export default function LeitorQRCode() {
     const [modalIsVisible, setModalIsVisible] = useState(true);
@@ -32,7 +31,7 @@ export default function LeitorQRCode() {
                 throw new Error("QR Code inválido: nome do utensílio não encontrado.");
             }
     
-            const response = await fetch(`:3000/utensilios/${encodeURIComponent(qrData.name)}`);
+            const response = await fetch(`${config.IP_PESSOAL}:3000/utensilios/${encodeURIComponent(qrData.name)}`);
             if (!response.ok) {
                 throw new Error("Utensílio não encontrado.");
             }

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState, useRef } from "react"; 
 import { FlatList, View, Text, TouchableOpacity, Alert, TextInput, ActivityIndicator } from "react-native";
 import { useRoute, useNavigation } from '@react-navigation/native'; 
 import { printToFileAsync } from 'expo-print';
 import { shareAsync } from 'expo-sharing';
 import QRCode from 'react-native-qrcode-svg';
+import * as MediaLibrary from 'expo-media-library';
+import ViewShot from 'react-native-view-shot';
 import config from './../../../../../config';
 import styles from './styles';
 
@@ -14,6 +16,7 @@ export default function Form() {
 
     const [registros, setRegistros] = useState([]);
     const [isGeneratingPDF, setIsGeneratingPDF] = useState(false); // Novo estado para controlar o processo de geração
+    const qrCodeRef = useRef(); // Referência para o componente QRCode
 
     useEffect(() => {
         const update = navigation.addListener("focus", () => {
@@ -41,8 +44,8 @@ export default function Form() {
     // Função para gerar o PDF
     const generatePDF = async () => {
         setIsGeneratingPDF(true); // Ativar o estado de geração
-        const htmlContent = `
-            <html>
+        const htmlContent = 
+            `<html>
                 <head>
                     <style>
                         body { 
@@ -90,13 +93,13 @@ export default function Form() {
                     <p><span class="item">Item:</span> ${utensilio.name}</p>
                     <h2>Atividades Recentes</h2>
                     <ul>
-                        ${registros.map(item => `
-                            <li class="registro">${item.descriptionUso} - ${item.responsavelUso}, ${formatDate(item.dataUso)}</li>
-                        `).join('')}
+                        ${registros.map(item => 
+                            `<li class="registro">${item.descriptionUso} - ${item.responsavelUso}, ${formatDate(item.dataUso)}</li>`
+                        ).join('')}
                     </ul>
                 </body>
-            </html>
-        `;
+            </html>`
+        ;
 
         try {
             // Gerar o PDF com o conteúdo HTML
@@ -114,6 +117,46 @@ export default function Form() {
         }
     };
 
+    // Função para baixar o QR Code
+    const downloadQRCode = async () => {
+        const { status } = await MediaLibrary.requestPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert('Permissão necessária', 'Permissão para acessar a galeria é necessária para salvar o QR Code.');
+            return;
+        }
+
+        try {
+            // Captura a imagem do QR Code
+            const uri = await qrCodeRef.current.capture();
+            console.log('URI da imagem capturada:', uri);
+
+            // Salva a imagem na galeria
+            await MediaLibrary.saveToLibraryAsync(uri);
+            Alert.alert('Sucesso', 'QR Code salvo na galeria.');
+        } catch (error) {
+            console.error('Erro ao baixar o QR Code:', error);
+            Alert.alert('Erro', 'Ocorreu um erro ao salvar o QR Code.');
+        }
+    };
+
+    // Função para exibir o Alert de confirmação
+    const handleQRCodePress = () => {
+        Alert.alert(
+            "Download do QR Code",
+            "Deseja fazer o download do QR Code?",
+            [
+                {
+                    text: "Cancelar",
+                    style: "cancel"
+                },
+                { 
+                    text: "Sim", 
+                    onPress: downloadQRCode 
+                }
+            ]
+        );
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.itemContainer}>
@@ -122,7 +165,25 @@ export default function Form() {
             
                 <View style={styles.qrContainer}>
                     {utensilio.qrCode ? (
-                        <QRCode value={utensilio.qrCode} size={110} />
+                        <TouchableOpacity onPress={handleQRCodePress}>
+                            <ViewShot ref={qrCodeRef} options={{ format: 'png', quality: 1 }}>
+                                <View style={{ alignItems: 'center', justifyContent: 'center', width: 110 }}>
+                                    <QRCode value={utensilio.qrCode} size={110} />
+                                    <Text 
+                                        style={{
+                                            marginTop: 0.5,
+                                            fontSize: 10,
+                                            color: '#FFF',
+                                            textAlign: 'center',  // Garante que o texto fique centralizado
+                                            width: '100%',         // Garante que a largura do texto seja a mesma do QR Code
+                                            flexWrap: 'wrap'       // Permite a quebra de linha
+                                        }}
+                                    >
+                                        {utensilio.name}
+                                    </Text>
+                                </View>
+                            </ViewShot>
+                        </TouchableOpacity>
                     ) : (
                         <Text style={styles.alertText}>QR Code não disponível</Text>
                     )}

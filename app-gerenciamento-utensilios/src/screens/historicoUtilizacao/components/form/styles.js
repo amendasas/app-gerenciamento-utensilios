@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
     itemContainer: {
         alignItems: 'flex-start',
         justifyContent: 'center',
-        paddingTop: "7%",
+        paddingTop: "5%",
     },
     itemNome: {
         textAlign: 'center', // Centraliza o texto
         fontSize: 30,
         fontWeight: 'bold',
         paddingHorizontal: '5%',
-        paddingBottom: "2%",
+        paddingBottom: "1%",
         flexWrap: 'wrap', // Permite a quebra de linha
         maxWidth: '90%', 
         alignSelf: 'center',
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        marginVertical: 10,
+        marginVertical: 2,
         paddingHorizontal: '5%',
         maxWidth: '90%', 
         alignSelf: 'center',

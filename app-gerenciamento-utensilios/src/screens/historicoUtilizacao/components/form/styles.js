@@ -3,10 +3,9 @@ import Color from "./../../../../components/colors";
 
 const styles = StyleSheet.create({
     atividadesRecentes: {
-        color: Color.grayEscuro,
+        color: '#A0A0A0',
         fontSize: 18,
-        fontWeight: 'bold',
-        paddingBottom: "7%",
+        paddingBottom: "2%",
     },
     button: {
         alignItems: 'center',
@@ -19,7 +18,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: '7%',
-        paddingVertical: '7%',
+        paddingVertical: '3%',
         width: '100%',
     },
     buttonText: {
@@ -34,7 +33,12 @@ const styles = StyleSheet.create({
     },
     item: {
         color: Color.link,
-        fontSize: 20,
+        textAlign: 'center', // Centraliza o texto
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingHorizontal: '5%',
+        maxWidth: '90%', 
+        alignSelf: 'center',
     },
     itemContainer: {
         alignItems: 'flex-start',
@@ -42,17 +46,33 @@ const styles = StyleSheet.create({
         paddingTop: "7%",
     },
     itemNome: {
-        color: Color.black,
-        fontSize: 40,
-        fontWeight: "bold",
+        textAlign: 'center', // Centraliza o texto
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingHorizontal: '5%',
+        paddingBottom: "2%",
+        flexWrap: 'wrap', // Permite a quebra de linha
+        maxWidth: '90%', 
+        alignSelf: 'center',
     },
+    
     label: {
         alignSelf: "flex-start",
         color: Color.gray,
         fontSize: 16,
         paddingHorizontal: "5%",
         paddingVertical: "1%",
-    }
+    },
+    qrContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        marginVertical: 10,
+        paddingHorizontal: '5%',
+        maxWidth: '90%', 
+        alignSelf: 'center',
+    },    
+    
 });
 
 export default styles;

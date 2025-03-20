@@ -3,6 +3,7 @@ import { FlatList, View, Text, TouchableOpacity, Alert, TextInput, ActivityIndic
 import { useRoute, useNavigation } from '@react-navigation/native'; 
 import { printToFileAsync } from 'expo-print';
 import { shareAsync } from 'expo-sharing';
+import QRCode from 'react-native-qrcode-svg';
 import config from './../../../../../config';
 import styles from './styles';
 
@@ -118,6 +119,14 @@ export default function Form() {
             <View style={styles.itemContainer}>
                 <Text style={styles.item}>Item</Text>
                 <Text style={styles.itemNome}>{utensilio.name}</Text> 
+            
+                <View style={styles.qrContainer}>
+                    {utensilio.qrCode ? (
+                        <QRCode value={utensilio.qrCode} size={110} />
+                    ) : (
+                        <Text style={styles.alertText}>QR Code não disponível</Text>
+                    )}
+                </View>
             </View>
 
             <View style={styles.buttonContainer}>
